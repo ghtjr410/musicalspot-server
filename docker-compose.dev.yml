@@ -4,7 +4,7 @@ version: '3.8'
 
 services:
   app:
-    container_name: test-dev
+    container_name: musicalspot-server-dev
     # image: ghtjr410/test-dev:1.0.0  # 미리 빌드된 Docker 이미지 사용
     build:
       context: .

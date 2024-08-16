@@ -1,17 +1,11 @@
+// devcontainer.json
 {
 	"name": "musicalspot-server-development",
-	// "image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
-
-	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "false",
-			"installGradle": "true"
-		}
-	},
+    "service": "app",
+    "workspaceFolder": "/workspaces",
     "dockerComposeFile": [
-        "../docker-compose.yml",  
-        "../docker-compose.dev.yml"
+        "C:/projects/musicalspot-server/docker-compose.yml",  
+        "C:/projects/musicalspot-server/docker-compose.dev.yml"
     ],  
     "remoteUser": "root",
     "mounts": [
