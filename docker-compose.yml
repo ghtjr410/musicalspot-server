@@ -16,5 +16,5 @@ services:
       - LC_ALL=en_US.UTF-8 # 컨테이너의 로케일을 'en_US.UTF-8'로 설정합니다.
     command: sleep infinity # 컨테이너가 백그라운드에서 실행되도록 무한 대기 상태를 유지합니다.
 
-volumes:
-  gradle_cache: # 'gradle_cache'라는 이름의 Docker 볼륨을 정의하여, Gradle 캐시 데이터를 저장합니다.
+# volumes:
+#   gradle_cache: # 'gradle_cache'라는 이름의 Docker 볼륨을 정의하여, Gradle 캐시 데이터를 저장합니다.
