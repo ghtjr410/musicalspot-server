@@ -2,6 +2,10 @@
 # Dockerfile.dev
 FROM gradle:7.5.1-jdk17 AS build
 
+# vscode 사용자 추가
+# RUN useradd -m vscode
+
+# USER vscode
 USER root
 
 # 필수 패키지 및 Java 설치

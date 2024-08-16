@@ -7,9 +7,11 @@
         "C:/projects/musicalspot-server/docker-compose.yml",  
         "C:/projects/musicalspot-server/docker-compose.dev.yml"
     ],  
+    // "remoteUser": "vscode",
     "remoteUser": "root",
     "mounts": [
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+        "source=${localWorkspaceFolder}/.gradle-cache,cached,target=/root/.gradle"
     ],
 	"customizations": {
         "vscode": {

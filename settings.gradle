@@ -1,1 +1,11 @@
 rootProject.name = 'back'
+/*
+ * 프로젝트별 독립적인 Gradle 캐시 설정
+ * 이 설정을 통해 프로젝트 간 캐시 충돌 방지 및 빌드의 일관성 유지 가능
+ * 캐시 경로: 프로젝트 루트 디렉토리의 '.gradle-cache' 폴더
+ */
+buildCache {
+    local {
+        directory = new File(rootDir, '.gradle-cache')
+    }
+}
