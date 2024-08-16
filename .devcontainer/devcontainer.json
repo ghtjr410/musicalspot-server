@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
+{
+	"name": "Java",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
+
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "false",
+			"installGradle": "true"
+		}
+	},
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "vscjava.vscode-spring-boot-dashboard",
+                "vmware.vscode-boot-dev-pack",
+                "vmware.vscode-spring-boot",
+                "vscjava.vscode-spring-initializr",
+                "vscjava.vscode-java-pack",
+                "joyous-coder.springboot-extension-pack",
+                "cweijan.dbclient-jdbc",
+                "dineug.vuerd-vscode",
+                "aaron-bond.better-comments",
+                "exiasr.hadolint",
+                "bierner.markdown-preview-github-styles",
+                "cweijan.vscode-mysql-client2"
+            ]
+        }
+	}
+}
