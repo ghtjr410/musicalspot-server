@@ -1,9 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "Java",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
+	"name": "musicalspot-server-development",
+	// "image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
 
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
@@ -12,6 +9,14 @@
 			"installGradle": "true"
 		}
 	},
+    "dockerComposeFile": [
+        "../docker-compose.yml",  
+        "../docker-compose.dev.yml"
+    ],  
+    "remoteUser": "root",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
 	"customizations": {
         "vscode": {
             "extensions": [

@@ -1,0 +1,22 @@
+# Dev Container
+# Dockerfile.dev
+FROM gradle:7.5.1-jdk17 AS build
+
+USER root
+
+# 필수 패키지 및 Java 설치
+RUN apt-get update && \
+    apt-get install -y wget java-common && \
+    wget https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.deb && \
+    dpkg -i amazon-corretto-17-x64-linux-jdk.deb && \
+    update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-amazon-corretto/bin/java 1 && \
+    update-alternatives --set java /usr/lib/jvm/java-17-amazon-corretto/bin/java
+
+# Docker CLI 및 Docker Compose 설치
+RUN apt-get update && \
+    apt-get install -y docker.io && \
+    curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose
+
+WORKDIR /workspaces
+EXPOSE 4040

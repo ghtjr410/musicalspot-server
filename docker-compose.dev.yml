@@ -1,0 +1,17 @@
+# DevContainer용
+# docker-compose.dev.yml
+version: '3.8'
+
+services:
+  app:
+    container_name: test-dev
+    # image: ghtjr410/test-dev:1.0.0  # 미리 빌드된 Docker 이미지 사용
+    build:
+      context: .
+      dockerfile: Dockerfile.dev  # 개발 환경에서는 Dockerfile.dev 사용
+    ports:
+      - "4040:4040"
+    environment:
+      - DEBUG=true # 개발 환경에서만 활성화되는 디버그 설정
+    # volumes: 향후 테스트 환경에서 쓰일 스크립트들
+    #   - "./extra:/extra" # 개발 환경에서만 필요한 추가 볼륨 

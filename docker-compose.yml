@@ -1,0 +1,20 @@
+# 컨테이너 관리 docker-compose용
+# docker-compose.yml
+services:
+  test: # 'test' 서비스 정의, 이 컨테이너가 생됩니다.
+    # build: # 컨테이너를 빌드할 때 사용되는 옵션을 정의합니다
+    #   context: .  # 현재 디렉토리에서 test 폴더를 context로 설정
+    #   dockerfile: Dockerfile.dev  # Dockerfile.dev을 직접 명시
+    restart: always # 컨테이너가 종료될 때 항상 자동으로 재시작하도록 설정합니다.
+    # ports:
+    #   - 4040:4040 # 호스트의 4040 포트를 컨테이너의 4040 포트와 연결합니다.
+    volumes:
+      - ".:/workspaces" # 현재 프로젝트의 모든 파일을 컨테어늬 /workspces 디렉토리와 공유합니다.
+      - gradle_cache:/root/.gradle/caches # Gradle 캐시를 유지하기 위해 Docker 볼륨을 설정하고, 이를 컨테이너의 Gradle 캐시 디렉토리와 연결합니다.
+    environment:
+      - TZ=Asia/Seoul # 컨테이너의 시간대를 'Asia/Seoul'로 설정합니다.
+      - LC_ALL=en_US.UTF-8 # 컨테이너의 로케일을 'en_US.UTF-8'로 설정합니다.
+    command: sleep infinity # 컨테이너가 백그라운드에서 실행되도록 무한 대기 상태를 유지합니다.
+
+volumes:
+  gradle_cache: # 'gradle_cache'라는 이름의 Docker 볼륨을 정의하여, Gradle 캐시 데이터를 저장합니다.
